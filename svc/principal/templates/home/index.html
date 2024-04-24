@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Moto Nexus</title>
+    <!--Estilos-->
+    <link rel="stylesheet" type="text/css" href="{% static '/estilos/reset.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/estilos/Principal.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/styles/admin-styles.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/styles/inventario-styles.css'%}">
+
+    <!-- Fuentes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0"/>
+
+    <!--Icono-->
+    <link rel="icon" href="https://res.cloudinary.com/dnbwjuwvx/image/upload/v1711637553/MotoNexus/motonexuslogo.png"
+          type="image/png">
+</head>
+<body>
+<div class="container">
+
+    {% if request.user.is_authenticated %}
+
+    {% if request.belongs_group %}
+
+    <header>
+        <div class="container__logo">
+            <a href="{% url 'home' %}"><img src="{% static '/logo+frase_white.png'%}" title="MotoNexus" alt="Logo MotoNexus.com"></a>
+        </div>
+        <div class="container__search">
+            <div class="search__searching">
+                <input class="searching__input" placeholder="Busca tus productos favoritos">
+            </div>
+            <div class="search__item">
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'proveedores' %}">Provedores</a>
+                    </li>
+                    <li>
+                        <a href="#">Productos</a>
+                    </li>
+                    <li>
+                        <a href="#">Marcas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container__login">
+            <ul>
+                <li>
+                    <a href="#">Mi inventario</a>
+                </li>
+                <li>
+                    <div class="login__links-active">
+                        <div class="hover__tooltip">
+                            <div class="iniciales">
+                                {{ user.username|slice:":2" }}
+                            </div>
+                            <span class="completo">
+                                        {{ user.username }}
+                                    </span>
+                        </div>
+                        <div class="ayuda">
+
+                        </div>
+                        <div class="ventana__perfil">
+                            <div class="perfil__perfil">
+                                <div class="perfil__iniciales">
+                                    {{ user.username|slice:":2" }}
+                                </div>
+                                &nbsp;&nbsp;
+                                <span class="perfil__completo">
+                                                {{ user.username }}
+                                        </span>
+                            </div>
+                            <div class="perfil__exit">
+                                <a href="{% url 'exit' %}">Salir</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    {% else %}
+
+    <header>
+        <div class="container__logo">
+            <a href="{% url 'home' %}"><img src="{% static '/logo+frase_white.png'%}" title="MotoNexus" alt="Logo MotoNexus.com"></a>
+        </div>
+        <div class="container__search">
+            <div class="search__searching">
+                <input class="searching__input" placeholder="Busca tus productos favoritos">
+            </div>
+            <div class="search__item">
+                <ul>
+                    <li>
+                        <a href="#">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#">Categorias</a>
+                    </li>
+                    <li>
+                        <a href="#">Marcas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container__login">
+            <ul>
+                <li>
+                    <a href="#">Mis compras</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <img src="{% static '/carrito.png' %}">
+                    </a>
+                </li>
+                <li>
+                    <div class="login__links-active">
+                        <div class="hover__tooltip">
+                            <div class="iniciales">
+                                {{ user.username|slice:":2" }}
+                            </div>
+                            <span class="completo">
+                                    {{ user.username }}
+                                </span>
+                        </div>
+                        <div class="ayuda">
+
+                        </div>
+                        <div class="ventana__perfil">
+                            <div class="perfil__perfil">
+                                <div class="perfil__iniciales">
+                                    {{ user.username|slice:":2" }}
+                                </div>
+                                &nbsp;&nbsp;
+                                <span class="perfil__completo">
+                                            {{ user.username }}
+                                    </span>
+                            </div>
+                            <div class="perfil__exit">
+                                <a href="{% url 'exit' %}">Salir</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    {% endif %}
+
+    {% else %}
+
+    <header>
+        <div class="container__logo">
+            <a href="{% url 'home' %}"><img src="{% static '/logo+frase_white.png'%}" title="MotoNexus" alt="Logo MotoNexus.com"></a>
+        </div>
+        <div class="container__search">
+            <div class="search__searching">
+                <input class="searching__input" placeholder="Busca tus productos favoritos">
+            </div>
+            <div class="search__item">
+                <ul>
+                    <li>
+                        <a href="{% url 'home' %}">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="#">Categorias</a>
+                    </li>
+                    <li>
+                        <a href="#">Marcas</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="container__login">
+            <ul>
+                <li>
+                    <a href="#">Crear cuenta</a>
+                </li>
+                <li>
+                    <a href="{% url 'ingresar' %}">Ingresar</a>
+                </li>
+                <li>
+                    <a href="{% url 'ingresar' %}">Mis compras</a>
+                </li>
+                <li>
+                    <a href="{% url 'ingresar' %}">
+                        <img src="{% static '/carrito.png' %}">
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </header>
+
+    {% endif %}
+
+    {% block content %}{% endblock %}
+
+    <script src="{% static '/js/inventario-scripts.js'%}"></script>
+</div>
+</body>
+</html>

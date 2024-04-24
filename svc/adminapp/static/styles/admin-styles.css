@@ -1,0 +1,93 @@
+:root{
+    --color-principal: #0078FF;
+    --background: #EAEAEB;
+
+    --texto: white;
+
+    --redondeado: 5px;
+
+    --family-principal: "Poppins";
+    --family-secundario: "Prompt";
+}
+
+.contenedor{
+    width: 100%;
+    height: calc(100vh - 100px);
+    background-color: var(--background);
+
+    display: flex;
+    justify-content: center;
+
+    padding-top: 25px;
+}
+
+.contenedor__box{
+    width: 1200px;
+    height: fit-content;
+
+    display: flex;
+    flex-wrap: wrap;
+    row-gap: 30px;
+    column-gap: 20px;
+}
+
+.box__list{
+    width: 590px;
+    height: 280px;
+    background-color: white;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: row;
+
+    padding: 0px 10px;
+}
+
+.list__text{
+    width: calc(590px - 250px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+
+    padding: 0 30px;
+}
+
+.text__p{
+    font-family: var(--family-secundario);
+    font-size: 14px;
+}
+
+.text__p > span{
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.list__text > a{
+    width: 130px;
+    height: 35px;
+
+    font-family: var(--family-secundario);
+    font-size: 14px;
+
+    color: white;
+    background-color: var(--color-principal);
+    border-radius: 3px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list__img{
+    width: 250px;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.list__img > img{
+    background-color: #0062FF;
+    height: 300px !important;
+}

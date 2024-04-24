@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Moto Nexus</title>
+
+    <!--Estilos-->
+    <link rel="stylesheet" type="text/css" href="{% static '/estilos/reset.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/estilos/login.css'%}">
+
+    <!-- Fuentes-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@100;200;300;400;500;600;700;800;900&display=swap"
+          rel="stylesheet">
+
+    <!--Icono-->
+    <link rel="icon" href="https://res.cloudinary.com/dnbwjuwvx/image/upload/v1711637553/MotoNexus/motonexuslogo.png"
+          type="image/png">
+</head>
+<body>
+<div class="container">
+    <header>
+        <div class="container__logo">
+            <img src="{% static '/logo+frase_white.png'%}" title="MotoNexus" alt="Logo MotoNexus.com">
+        </div>
+        <div class="container__title">
+            <h1>MotoNexus.com</h1>
+        </div>
+    </header>
+    <main>
+        <form class="contenedor__inicio" action="{% url 'login' %}" method="post">
+            {% csrf_token %}
+            <div class="">
+                <label for="InputEmail" class="">Correo electronico</label>
+                <input type="text" class="form-control" name="username" id="InputEmail" placeholder="Ingresa tu correo">
+            </div>
+            <div class="">
+                <label for="InputPassword" class="">Contraseña</label>
+                <input type="password" class="" name="password" id="InputPassword" placeholder="Ingresa tu contraseña">
+            </div>
+
+            <button class="inicio__submit" type="submit">Iniciar Sesión</button>
+        </form>
+        <div class="contenedor__links">
+            <ul>
+                <li>
+                    <span class="links__inclik">¿No tienes cuenta?</span>&nbsp;<a href="#" class="links__pag">Suscribete</a>
+                </li>
+                <li>
+                    <span class="links__inclik">¿Olvidaste tu contraseña?</span>&nbsp;<a href="#" class="links__pag">Recuperala Aqui</a>
+                </li>
+            </ul>
+        </div>
+    </main>
+</div>
+</body>
+</html>

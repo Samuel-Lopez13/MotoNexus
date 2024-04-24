@@ -1,0 +1,315 @@
+:root {
+    --color-principal: #0078FF;
+    --background: #EAEAEB;
+
+    --texto: white;
+
+    --redondeado: 5px;
+    --redondeado2: 4px;
+
+    --family-principal: "Poppins";
+    --family-secundario: "Prompt";
+}
+
+main {
+    width: 100%;
+    height: calc(100vh - 100px);
+    background-color: var(--background);
+
+    display: flex;
+    justify-content: center;
+
+    padding-top: 25px;
+
+    z-index: 5;
+}
+
+.container__inventario {
+    width: 1200px;
+    height: fit-content;
+
+    background-color: white;
+    border-radius: var(--redondeado);
+
+    display: flex;
+    flex-direction: column;
+}
+
+.superior__container {
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    padding: 30px;
+}
+
+.busqueda__container > input {
+    width: 600px;
+    height: 40px;
+
+    border: .3px solid rgba(0, 0, 0, 0.3);
+    padding-left: 15px;
+
+    font-family: var(--family-principal);
+    font-size: 14px;
+}
+
+.busqueda__container > input:focus {
+    outline: none;
+}
+
+.button__more {
+    width: fit-content;
+    height: 40px;
+
+    display: flex;
+    align-items: center;
+
+    background-color: var(--color-principal);
+    border-radius: var(--redondeado2);
+    border: none;
+
+    padding: 0 15px;
+
+    color: white;
+    font-family: var(--family-secundario);
+    font-size: 14px;
+
+    cursor: pointer;
+}
+
+.button__more > span {
+    font-size: 30px;
+}
+
+.inferior__container {
+    width: 100%;
+    height: fit-content;
+
+    padding: 30px;
+}
+
+.encabezado__table {
+    width: 100%;
+    height: 40px;
+
+    border-bottom: 0.3px solid rgba(164, 164, 164, 0.3);
+
+    display: grid;
+    grid-template-columns: 100px 150px repeat(4, 1fr) repeat(3, 50px);
+    grid-template-rows: 100%;
+}
+
+.info__table{
+    width: 100%;
+    height: 70px;
+
+    border-bottom: 0.3px solid rgba(164, 164, 164, 0.3);
+
+    display: grid;
+    grid-template-columns: 100px 150px repeat(4, 1fr) repeat(3, 50px);
+    grid-template-rows: 100%;
+}
+
+.id__table, .id__info {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.img__table, .img__info {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.name__table, .name__info {
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.stock__table, .stock__info {
+    grid-area: 1 / 4 / 2 / 5;
+}
+
+.vendidos__table, .vendidos__info {
+    grid-area: 1 / 5 / 2 / 6;
+}
+
+.estatus__table, .estatus__info {
+    grid-area: 1 / 6 / 2 / 7;
+}
+
+.agregar__table, .agregar__info {
+    grid-area: 1 / 7 / 2 / 8;
+}
+
+.editar__table, .editar__info {
+    grid-area: 1 / 8 / 2 / 9;
+}
+
+.eliminar__table, .eliminar__info {
+    grid-area: 1 / 9 / 2 / 10;
+}
+
+.table__design, .info__design {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.table__title {
+    margin: 0;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.info__text{
+    margin: 0;
+    font-family: var(--family-secundario);
+    font-size: 16px;
+    font-weight: normal;
+}
+
+.info__status{
+    color: #47A825;
+}
+
+.button__info{
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.button__info > img:hover{
+    transform: scale(1.05);
+}
+
+.img__info > img{
+    width: 50px;
+    height: 50px;
+    overflow: hidden;
+}
+
+/* ****************************************************************************************************************** */
+
+.container__alerta-inventario{
+    display: none;
+
+    width: 100%;
+    height: calc(100vh - 100px);
+    margin-top: -25px;
+    background-color: rgba(0, 0, 0, 0.1);
+    position: absolute;
+
+    justify-content: center;
+    align-items: center;
+}
+
+.alerta-inventario__box{
+    width: 500px;
+    height: fit-content;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.container__alerta-inventario__superior{
+    width: 100%;
+    padding: 20px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: 0.3px solid rgba(164, 164, 164, 0.3);
+}
+
+.container__alerta-inventario__superior > h3{
+    font-family: var(--family-secundario);
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.container__alerta-inventario__medio{
+    width: 100%;
+}
+
+.alerta-inventario__medio__form{
+    width: 100%;
+
+    padding: 20px 0;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.alerta-inventario__medio__form > input{
+    width: 450px;
+    height: 50px;
+
+    border: none;
+    background-color: transparent;
+
+    font-family: var(--family-principal);
+    font-size: 13px;
+}
+
+.alerta-inventario__medio__form > input::placeholder{
+    font-size: 15px;
+    color: rgba(0, 0, 0, 0.2);
+}
+
+.alerta-inventario__medio__form > input:focus{
+    outline: none;
+}
+
+.alerta-inventario__form__box{
+    width: 450px;
+    height: 230px;
+    border-radius: 3px;
+    border: 0.3px solid rgba(164, 164, 164, 0.3);
+
+    padding: 10px;
+}
+
+.alerta-inventario__form__box > button{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+
+    background-color: #EDEDED;
+
+    border: none;
+    border-radius: 3px;
+
+    cursor: pointer;
+}
+
+.alerta-inventario__form__box > button:hover{
+    background-color: rgba(222, 222, 222, 0.86);
+}
+
+.container__alerta-inventario__inferior{
+    width: 100%;
+
+    padding: 15px 25px 25px;
+}
+
+.container__alerta-inventario__inferior > button {
+    width: 100%;
+    height: 43px;
+
+    border-radius: 3px;
+    border: none;
+
+    background-color: var(--color-principal);
+
+    color: white;
+    font-family: var(--family-secundario);
+    font-size: 15px;
+    font-weight: bold;
+
+    cursor: pointer;
+}

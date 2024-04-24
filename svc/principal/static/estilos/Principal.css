@@ -1,0 +1,176 @@
+:root{
+    --color-principal: #0078FF;
+    --background: #EAEAEB;
+
+    --texto: white;
+
+    --redondeado: 5px;
+
+    --family-principal: "Poppins";
+    --family-secundario: "Prompt";
+}
+
+.container{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--background);
+}
+
+header{
+    width: 100%;
+    height: 100px;
+    background-color: var(--color-principal);
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+}
+
+.container__search{
+    height: 100%;
+    padding: 15px 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.searching__input{
+    width: 600px;
+    height: 40px;
+
+    border: .3px solid rgba(0, 0, 0, 0.3);
+    padding-left: 15px;
+}
+
+.searching__input:focus{
+    outline: none;
+}
+
+.searching__input::placeholder{
+    font-size: 14px;
+}
+
+.search__item > ul{
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    color: var(--texto);
+}
+
+.container__login{
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 15px;
+}
+
+.container__login > ul{
+    display: flex;
+    gap: 20px;
+    font-size: 14px;
+    color: var(--texto);
+}
+
+.login__links-active{
+    display: flex;
+    position: relative;
+}
+
+.ventana__perfil::before{
+    content: '';
+    width: 20px;
+    height: 20px;
+    background-color: white;
+
+    position: absolute;
+    top: -6px;
+    left: 115px;
+    z-index: 10;
+    transform: rotate(45deg);
+}
+
+.perfil__perfil{
+    display: flex;
+    align-items: center;
+
+    border-bottom: .1px solid rgba(0, 0, 0, 0.1);
+
+    color: black;
+    font-family: var(--family-secundario);
+    font-size: 16px;
+    padding: 10px;
+}
+
+.perfil__iniciales{
+    width: 40px;
+    height: 40px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: white;
+    border: .3px solid rgba(0, 0, 0, 0.1);
+    border-radius: 356px;
+}
+
+.perfil__exit{
+    color: black;
+    margin: 10px 0;
+    padding: 5px 20px;
+
+    cursor: pointer;
+}
+
+.perfil__exit:hover{
+    background-color: rgba(128, 128, 128, 0.1);
+}
+
+.ventana__perfil{
+    display: none;
+    width: 250px;
+    height: fit-content;
+
+    left: -50px;
+    top: 35px;
+
+    background-color: white;
+    border-radius: 3px;
+
+    position: absolute;
+}
+
+.hover__tooltip{
+    cursor: pointer;
+}
+
+.ayuda{
+    width: 100%;
+    height: 50px;
+    background-color: rgba(0, 98, 255, 0);
+    cursor: pointer;
+    position: absolute;
+}
+
+.login__links-active:hover > .ventana__perfil{
+    display: block;
+}
+
+.iniciales{
+    position: absolute;
+    width: 25px;
+    height: 25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 360px;
+    background-color: white;
+    color: black;
+}
+
+.completo{
+    padding-left: 30px;
+}

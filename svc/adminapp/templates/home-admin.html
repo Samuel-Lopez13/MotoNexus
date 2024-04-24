@@ -1,0 +1,49 @@
+{% extends 'home/index.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <div class="contenedor">
+        <div class="contenedor__box">
+            <div class="box__list">
+                <div class="list__text">
+                    <div class="text__p">
+                        Consultar
+                        <br><br>
+                        <span>Lista de proveedores en el sistema</span>
+                    </div>
+                    <a href="{% url 'proveedores'%}">Consultar lista</a>
+                </div>
+                <div class="list__img">
+                    <img src="{% static '/provedoresimg.png'%}" alt="">
+                </div>
+            </div>
+            <div class="box__list">
+                <div class="list__text">
+                    <div class="text__p">
+                        Consultar
+                        <br><br>
+                        <span>Lista de productos en el sistema</span>
+                    </div>
+                    <a href="{% url 'productos'%}">Consultar lista</a>
+                </div>
+                <div class="list__img">
+                    <img src="{% static '/productosimg.png'%}" alt="">
+                </div>
+            </div>
+            <div class="box__list">
+                <div class="list__text">
+                    <div class="text__p">
+                        Consultar
+                        <br><br>
+                        <span>Lista de marcas en el sistema</span>
+                    </div>
+                    <a href="{% url 'marcas'%}">Consultar lista</a>
+                </div>
+                <div class="list__img">
+                    <img src="{% static '/marcasimg.png'%}" alt="">
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}
