@@ -100,6 +100,17 @@ main {
     grid-template-rows: 100%;
 }
 
+.encabezado__table-marcas{
+    width: 100%;
+    height: 40px;
+
+    border-bottom: 0.3px solid rgba(164, 164, 164, 0.3);
+
+    display: grid;
+    grid-template-columns: 100px 150px repeat(5, 1fr) repeat(3, 50px);
+    grid-template-rows: 100%;
+}
+
 .info__table{
     width: 100%;
     height: 70px;
@@ -111,41 +122,40 @@ main {
     grid-template-rows: 100%;
 }
 
-.id__table, .id__info {
-    grid-area: 1 / 1 / 2 / 2;
+.info__table-marcas{
+    width: 100%;
+    height: 70px;
+
+    border-bottom: 0.3px solid rgba(164, 164, 164, 0.3);
+
+    display: grid;
+    grid-template-columns: 100px 150px repeat(5, 1fr) repeat(3, 50px);
+    grid-template-rows: 100%;
 }
 
-.img__table, .img__info {
-    grid-area: 1 / 2 / 2 / 3;
-}
+/* ****** Tabla de Proveedores ****** */
 
-.name__table, .name__info {
-    grid-area: 1 / 3 / 2 / 4;
-}
+.id__table, .id__info { grid-area: 1 / 1 / 2 / 2; }
+.img__table, .img__info { grid-area: 1 / 2 / 2 / 3; }
+.name__table, .name__info { grid-area: 1 / 3 / 2 / 4; }
+.stock__table, .stock__info { grid-area: 1 / 4 / 2 / 5; }
+.vendidos__table, .vendidos__info { grid-area: 1 / 5 / 2 / 6; }
+.estatus__table, .estatus__info { grid-area: 1 / 6 / 2 / 7; }
+.agregar__table, .agregar__info { grid-area: 1 / 7 / 2 / 8; }
+.editar__table, .editar__info { grid-area: 1 / 8 / 2 / 9; }
+.eliminar__table, .eliminar__info { grid-area: 1 / 9 / 2 / 10; }
 
-.stock__table, .stock__info {
-    grid-area: 1 / 4 / 2 / 5;
-}
-
-.vendidos__table, .vendidos__info {
-    grid-area: 1 / 5 / 2 / 6;
-}
-
-.estatus__table, .estatus__info {
-    grid-area: 1 / 6 / 2 / 7;
-}
-
-.agregar__table, .agregar__info {
-    grid-area: 1 / 7 / 2 / 8;
-}
-
-.editar__table, .editar__info {
-    grid-area: 1 / 8 / 2 / 9;
-}
-
-.eliminar__table, .eliminar__info {
-    grid-area: 1 / 9 / 2 / 10;
-}
+/* ****** Tabla de Marcas ****** */
+.id__table-marcas, id__info-marcas { grid-area: 1 / 1 / 2 / 2; }
+.img__table-marcas, img__info-marcas { grid-area: 1 / 2 / 2 / 3; }
+.name__table-marcas, name__info-marcas { grid-area: 1 / 3 / 2 / 4; }
+.stock__table-marcas, stock__info-marcas { grid-area: 1 / 4 / 2 / 5; }
+.vendidos__table-marcas, vendidos__info-marcas { grid-area: 1 / 5 / 2 / 6; }
+.proveedor__table-marcas, proveedor__info-marcas { grid-area: 1 / 6 / 2 / 7; }
+.estatus__table-marcas, estatus__info-marcas { grid-area: 1 / 7 / 2 / 8; }
+.agregar__table-marcas, agregar__info-marcas { grid-area: 1 / 8 / 2 / 9; }
+.editar__table-marcas, editar__info-marcas { grid-area: 1 / 9 / 2 / 10; }
+.eliminar__table-marcas, eliminar__info-marcas { grid-area: 1 / 10 / 2 / 11; }
 
 .table__design, .info__design {
     display: flex;

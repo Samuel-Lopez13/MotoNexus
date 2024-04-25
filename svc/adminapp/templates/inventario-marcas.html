@@ -45,67 +45,73 @@
             </div>
         </div>
         <div class="inferior__container">
-            <div class="encabezado__table">
-                <div class="id__table table__design">
+            <div class="encabezado__table-marcas">
+                <div class="id__table-marcas table__design">
                     <h6 class="table__title">#</h6>
                 </div>
-                <div class="img__table table__design">
+                <div class="img__table-marcas table__design">
 
                 </div>
-                <div class="name__table table__design">
+                <div class="name__table-marcas table__design">
                     <h4 class="table__title">Nombre</h4>
                 </div>
-                <div class="stock__table table__design">
+                <div class="stock__table-marcas table__design">
                     <h4 class="table__title">Stock</h4>
                 </div>
-                <div class="vendidos__table table__design">
+                <div class="vendidos__table-marcas table__design">
                     <h4 class="table__title">Vendidos</h4>
                 </div>
-                <div class="estatus__table table__design">
+                <div class="proveedor__table-marcas table__design">
+                    <h4 class="table__title">Proveedor</h4>
+                </div>
+                <div class="estatus__table-marcas table__design">
                     <h4 class="table__title">Estatus</h4>
                 </div>
-                <div class="agregar__table table__design">
+                <div class="agregar__table-marcas table__design">
 
                 </div>
-                <div class="editar__table table__design">
+                <div class="editar__table-marcas table__design">
 
                 </div>
-                <div class="eliminar__table table__design">
+                <div class="eliminar__table-marcas table__design">
 
                 </div>
             </div>
-            {% for proveedor in proveedores %}
+            {% for marca in marcas %}
 
-            <div class="info__table">
-                <div class="id__info info__design">
+            <div class="info__table-marcas">
+                <div class="id__info-marcas info__design">
                     <h6 class="info__text">{{ forloop.counter }}</h6>
                 </div>
-                <div class="img__info info__design">
+                <div class="img__info-marcas info__design">
                     <img src="https://res.cloudinary.com/dnbwjuwvx/image/upload/v1713926110/{{proveedor.img}}" alt="">
                 </div>
-                <div class="name__info info__design">
-                    <h4 class="info__text">{{ proveedor.nombre }}</h4>
+                <div class="name__info-marcas info__design">
+                    <h4 class="info__text">{{ marca.nombre }}</h4>
                 </div>
-                <div class="stock__info info__design">
-                    <h4 class="info__text">{{ proveedor.stock }}</h4>
+                <div class="stock__info-marcas info__design">
+                    <h4 class="info__text">{{ marca.stock }}</h4>
                 </div>
-                <div class="vendidos__info info__design">
-                    <h4 class="info__text">{{ proveedor.noVenta }}</h4>
+                <div class="vendidos__info-marcas info__design">
+                    <h4 class="info__text">{{ marca.noVenta }}</h4>
                 </div>
-                <div class="estatus__info info__design">
-                    <h4 class="info__text info__status">{{ proveedor.status }}</h4>
+                <div class="vendidos__info-marcas info__design">
+                    <h4 class="info__text">{{ marca.proveedor.nombre }}</h4>
                 </div>
-                <div class="agregar__info info__design">
+                <div class="estatus__info-marcas info__design">
+                    <h4 class="info__text info__status">{{ marca.status }}</h4>
+                </div>
+                <div class="agregar__info-marcas info__design">
                     <button class="button__info agregar__butto">
                         <img src="{% static '/agregaricon.png'%}">
                     </button>
                 </div>
-                <div class="editar__info info__design">
+                <div class="editar__info-marcas info__design">
                     <button class="button__info editar__butto">
                         <img src="{% static '/editaricon.png'%}">
                     </button>
                 </div>
-                <div class="eliminar__info info__design">
+                <div class="eliminar__info-marcas info__design">
                     <a href="/eliminar_proveedor/{{proveedor.id}}">
                         <button class="button__info eliminar__butto">
                             <img src="{% static '/eliminaricon.png'%}">
