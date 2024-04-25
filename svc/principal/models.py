@@ -6,3 +6,6 @@ class Proveedores(models.Model):
     stock = models.IntegerField()
     noVenta = models.IntegerField()
     status = models.CharField(max_length=20)
+
+    class Meta:
+        db_table = 'principal_proveedores'
