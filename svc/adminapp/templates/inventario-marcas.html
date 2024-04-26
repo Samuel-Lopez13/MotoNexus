@@ -11,6 +11,12 @@
                 <form method="POST" enctype="multipart/form-data" class="alerta-inventario__medio__form">
                     {% csrf_token %}
                     <input name="nombre" type="text" placeholder="Ingresa el nombre de tu marca">
+                    <select name="opciones" class="selected_inventario">
+                        <option class="opciones_inventario" value="" selected>Selecciona un proveedor</option>
+                        {% for proveedor in proveedores %}
+                            <option class="opciones_inventario" value="{{ proveedor.id }}">{{ proveedor.nombre }}</option>
+                        {% endfor %}
+                    </select>
                     <div class="alerta-inventario__form__box">
                         <input name="img" type="file" id="archivo" style="display: none;" accept=".jpg, .png">
                         <button id="button__file" onclick="document.getElementById('archivo').click(); return false;">
@@ -84,7 +90,7 @@
                     <h6 class="info__text">{{ forloop.counter }}</h6>
                 </div>
                 <div class="img__info-marcas info__design">
-                    <img src="https://res.cloudinary.com/dnbwjuwvx/image/upload/v1713926110/{{proveedor.img}}" alt="">
+                    <img src="https://res.cloudinary.com/dnbwjuwvx/image/upload/v1713926110/{{marca.img}}" alt="">
                 </div>
                 <div class="name__info-marcas info__design">
                     <h4 class="info__text">{{ marca.nombre }}</h4>
@@ -112,7 +118,7 @@
                     </button>
                 </div>
                 <div class="eliminar__info-marcas info__design">
-                    <a href="/eliminar_proveedor/{{proveedor.id}}">
+                    <a href="/eliminar_marca/{{marca.id}}">
                         <button class="button__info eliminar__butto">
                             <img src="{% static '/eliminaricon.png'%}">
                         </button>

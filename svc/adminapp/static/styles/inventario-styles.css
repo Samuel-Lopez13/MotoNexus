@@ -190,7 +190,7 @@ main {
     transform: scale(1.05);
 }
 
-.img__info > img{
+.img__info > img, .img__info-marcas > img{
     width: 50px;
     height: 50px;
     overflow: hidden;
@@ -322,4 +322,32 @@ main {
     font-weight: bold;
 
     cursor: pointer;
+}
+
+/*********************************** Area Inventario Marcas ***********************************/
+
+.selected_inventario{
+    width: 450px;
+    height: 40px;
+
+    padding-left: 5px;
+
+    font-family: var(--family-secundario);
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
+
+    border-radius: 3px;
+    border: 1px solid var(--color-principal);
+}
+
+.selected_inventario:focus{
+    outline: none;
+}
+
+.opciones_inventario{
+    font-size: 15px;
+    font-weight: 400;
+
+    max-height: 200px;
 }

@@ -32,9 +32,10 @@ def marcas(request):
         # Obtener los datos del formulario
         nombre = request.POST.get('nombre')
         img = request.FILES.get('img')
+        proveedor_seleccionado = request.POST.get('opciones')
 
         # Crear una instancia del modelo Proveedores con los datos del formulario
-        marca = Marcas(nombre=nombre, img=img, stock=0, noVenta=0, proveedor_id=1, status='Activo')
+        marca = Marcas(nombre=nombre, img=img, stock=0, noVenta=0, proveedor_id=proveedor_seleccionado, status='Activo')
 
         # Guardar el proveedor en la base de datos
         marca.save()
@@ -43,8 +44,16 @@ def marcas(request):
         return redirect(request.path)
 
     marcas = Marcas.objects.all()
+    proveedores = Proveedores.objects.all()
 
-    return render(request, 'inventario-marcas.html', {'marcas': marcas})
+    return render(request, 'inventario-marcas.html', {'marcas': marcas, 'proveedores': proveedores})
+
+def eliminarMarca(request, id):
+    marca = get_object_or_404(Marcas, pk=id)
+    if marca:
+        marca.delete()
+
+    return redirect('marcas')
 
 def productos(request):
     return render(request, 'inventario-productos.html')
