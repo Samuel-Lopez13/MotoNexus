@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, get_object_or_404
-from principal.models import Proveedores, Marcas
+from principal.models import Proveedores, Marcas, Productos
+
 
 def proveedores(request):
     if request.method == 'POST':
@@ -56,4 +57,8 @@ def eliminarMarca(request, id):
     return redirect('marcas')
 
 def productos(request):
-    return render(request, 'inventario-productos.html')
+    productos = Productos.objects.all()
+    proveedores = Proveedores.objects.all()
+    marcas = Marcas.objects.all()
+
+    return render(request, 'inventario-productos.html',{'productos': productos, 'proveedores': proveedores, 'marcas': marcas})

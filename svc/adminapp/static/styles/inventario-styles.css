@@ -100,7 +100,7 @@ main {
     grid-template-rows: 100%;
 }
 
-.encabezado__table-marcas{
+.encabezado__table-marcas {
     width: 100%;
     height: 40px;
 
@@ -111,7 +111,18 @@ main {
     grid-template-rows: 100%;
 }
 
-.info__table{
+.encabezado__table-productos {
+    width: 100%;
+    height: 40px;
+
+    border-bottom: 0.3px solid rgba(164, 164, 164, 0.3);
+
+    display: grid;
+    grid-template-columns: 60px 100px repeat(8, 1fr) repeat(3, 50px);
+    grid-template-rows: 100%;
+}
+
+.info__table {
     width: 100%;
     height: 70px;
 
@@ -122,7 +133,7 @@ main {
     grid-template-rows: 100%;
 }
 
-.info__table-marcas{
+.info__table-marcas {
     width: 100%;
     height: 70px;
 
@@ -133,29 +144,149 @@ main {
     grid-template-rows: 100%;
 }
 
+.info__table-productos {
+    width: 100%;
+    height: 70px;
+
+    border-bottom: 0.3px solid rgba(164, 164, 164, 0.3);
+
+    display: grid;
+    grid-template-columns: 60px 100px repeat(8, 1fr) repeat(3, 50px);
+    grid-template-rows: 100%;
+
+}
+
 /* ****** Tabla de Proveedores ****** */
 
-.id__table, .id__info { grid-area: 1 / 1 / 2 / 2; }
-.img__table, .img__info { grid-area: 1 / 2 / 2 / 3; }
-.name__table, .name__info { grid-area: 1 / 3 / 2 / 4; }
-.stock__table, .stock__info { grid-area: 1 / 4 / 2 / 5; }
-.vendidos__table, .vendidos__info { grid-area: 1 / 5 / 2 / 6; }
-.estatus__table, .estatus__info { grid-area: 1 / 6 / 2 / 7; }
-.agregar__table, .agregar__info { grid-area: 1 / 7 / 2 / 8; }
-.editar__table, .editar__info { grid-area: 1 / 8 / 2 / 9; }
-.eliminar__table, .eliminar__info { grid-area: 1 / 9 / 2 / 10; }
+.id__table, .id__info {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.img__table, .img__info {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.name__table, .name__info {
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.stock__table, .stock__info {
+    grid-area: 1 / 4 / 2 / 5;
+}
+
+.vendidos__table, .vendidos__info {
+    grid-area: 1 / 5 / 2 / 6;
+}
+
+.estatus__table, .estatus__info {
+    grid-area: 1 / 6 / 2 / 7;
+}
+
+.agregar__table, .agregar__info {
+    grid-area: 1 / 7 / 2 / 8;
+}
+
+.editar__table, .editar__info {
+    grid-area: 1 / 8 / 2 / 9;
+}
+
+.eliminar__table, .eliminar__info {
+    grid-area: 1 / 9 / 2 / 10;
+}
 
 /* ****** Tabla de Marcas ****** */
-.id__table-marcas, id__info-marcas { grid-area: 1 / 1 / 2 / 2; }
-.img__table-marcas, img__info-marcas { grid-area: 1 / 2 / 2 / 3; }
-.name__table-marcas, name__info-marcas { grid-area: 1 / 3 / 2 / 4; }
-.stock__table-marcas, stock__info-marcas { grid-area: 1 / 4 / 2 / 5; }
-.vendidos__table-marcas, vendidos__info-marcas { grid-area: 1 / 5 / 2 / 6; }
-.proveedor__table-marcas, proveedor__info-marcas { grid-area: 1 / 6 / 2 / 7; }
-.estatus__table-marcas, estatus__info-marcas { grid-area: 1 / 7 / 2 / 8; }
-.agregar__table-marcas, agregar__info-marcas { grid-area: 1 / 8 / 2 / 9; }
-.editar__table-marcas, editar__info-marcas { grid-area: 1 / 9 / 2 / 10; }
-.eliminar__table-marcas, eliminar__info-marcas { grid-area: 1 / 10 / 2 / 11; }
+.id__table-marcas, id__info-marcas {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.img__table-marcas, img__info-marcas {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.name__table-marcas, name__info-marcas {
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.stock__table-marcas, stock__info-marcas {
+    grid-area: 1 / 4 / 2 / 5;
+}
+
+.vendidos__table-marcas, vendidos__info-marcas {
+    grid-area: 1 / 5 / 2 / 6;
+}
+
+.proveedor__table-marcas, proveedor__info-marcas {
+    grid-area: 1 / 6 / 2 / 7;
+}
+
+.estatus__table-marcas, estatus__info-marcas {
+    grid-area: 1 / 7 / 2 / 8;
+}
+
+.agregar__table-marcas, agregar__info-marcas {
+    grid-area: 1 / 8 / 2 / 9;
+}
+
+.editar__table-marcas, editar__info-marcas {
+    grid-area: 1 / 9 / 2 / 10;
+}
+
+.eliminar__table-marcas, eliminar__info-marcas {
+    grid-area: 1 / 10 / 2 / 11;
+}
+
+/* ****** Tabla de Productos ****** */
+.id__table-producto, .id__info-producto {
+    grid-area: 1 / 1 / 2 / 2;
+}
+
+.img__table-producto, .img__info-producto {
+    grid-area: 1 / 2 / 2 / 3;
+}
+
+.name__table-producto, .name__info-producto {
+    grid-area: 1 / 3 / 2 / 4;
+}
+
+.descripcion__table-producto, .descripcion__info-producto {
+    grid-area: 1 / 4 / 2 / 5;
+}
+
+.precio__table-producto, .precio__info-producto {
+    grid-area: 1 / 5 / 2 / 6;
+}
+
+.stock__table-producto, .stock__info-producto {
+    grid-area: 1 / 6 / 2 / 7;
+}
+
+.vendidos__table-producto, .vendidos__info-producto {
+    grid-area: 1 / 7 / 2 / 8;
+}
+
+.marca__table-producto, .marca__info-producto {
+    grid-area: 1 / 8 / 2 / 9;
+}
+
+.proveedor__table-producto, .proveedor__info-producto {
+    grid-area: 1 / 9 / 2 / 10;
+}
+
+.estatus__table-producto, .estatus__info-producto {
+    grid-area: 1 / 10 / 2 / 11;
+}
+
+.agregar__table-producto, .agregar__info-producto {
+    grid-area: 1 / 11 / 2 / 12;
+}
+
+.editar__table-producto, .editar__info-producto {
+    grid-area: 1 / 12 / 2 / 13;
+}
+
+.eliminar__table-producto, .eliminar__info-producto {
+    grid-area: 1 / 13 / 2 / 14;
+}
 
 .table__design, .info__design {
     display: flex;
@@ -169,28 +300,28 @@ main {
     font-size: 16px;
 }
 
-.info__text{
+.info__text {
     margin: 0;
     font-family: var(--family-secundario);
     font-size: 16px;
     font-weight: normal;
 }
 
-.info__status{
+.info__status {
     color: #47A825;
 }
 
-.button__info{
+.button__info {
     border: none;
     background-color: transparent;
     cursor: pointer;
 }
 
-.button__info > img:hover{
+.button__info > img:hover {
     transform: scale(1.05);
 }
 
-.img__info > img, .img__info-marcas > img{
+.img__info > img, .img__info-marcas > img, .img__info-producto > img {
     width: 50px;
     height: 50px;
     overflow: hidden;
@@ -198,7 +329,7 @@ main {
 
 /* ****************************************************************************************************************** */
 
-.container__alerta-inventario{
+.container__alerta-inventario {
     display: none;
 
     width: 100%;
@@ -211,14 +342,14 @@ main {
     align-items: center;
 }
 
-.alerta-inventario__box{
+.alerta-inventario__box {
     width: 500px;
     height: fit-content;
     background-color: white;
     border-radius: 5px;
 }
 
-.container__alerta-inventario__superior{
+.container__alerta-inventario__superior {
     width: 100%;
     padding: 20px 0;
 
@@ -229,17 +360,17 @@ main {
     border-bottom: 0.3px solid rgba(164, 164, 164, 0.3);
 }
 
-.container__alerta-inventario__superior > h3{
+.container__alerta-inventario__superior > h3 {
     font-family: var(--family-secundario);
     font-size: 18px;
     font-weight: 700;
 }
 
-.container__alerta-inventario__medio{
+.container__alerta-inventario__medio {
     width: 100%;
 }
 
-.alerta-inventario__medio__form{
+.alerta-inventario__medio__form {
     width: 100%;
 
     padding: 20px 0;
@@ -250,7 +381,7 @@ main {
     gap: 10px;
 }
 
-.alerta-inventario__medio__form > input{
+.alerta-inventario__medio__form > input {
     width: 450px;
     height: 50px;
 
@@ -261,16 +392,16 @@ main {
     font-size: 13px;
 }
 
-.alerta-inventario__medio__form > input::placeholder{
+.alerta-inventario__medio__form > input::placeholder {
     font-size: 15px;
     color: rgba(0, 0, 0, 0.2);
 }
 
-.alerta-inventario__medio__form > input:focus{
+.alerta-inventario__medio__form > input:focus {
     outline: none;
 }
 
-.alerta-inventario__form__box{
+.alerta-inventario__form__box {
     width: 450px;
     height: 230px;
     border-radius: 3px;
@@ -279,7 +410,7 @@ main {
     padding: 10px;
 }
 
-.alerta-inventario__form__box > button{
+.alerta-inventario__form__box > button {
     width: 100%;
     height: 100%;
 
@@ -297,11 +428,11 @@ main {
     cursor: pointer;
 }
 
-.alerta-inventario__form__box > button:hover{
+.alerta-inventario__form__box > button:hover {
     background-color: rgba(222, 222, 222, 0.86);
 }
 
-.container__alerta-inventario__inferior{
+.container__alerta-inventario__inferior {
     width: 100%;
 
     padding: 15px 25px 25px;
@@ -326,7 +457,7 @@ main {
 
 /*********************************** Area Inventario Marcas ***********************************/
 
-.selected_inventario{
+.selected_inventario {
     width: 450px;
     height: 40px;
 
@@ -341,13 +472,88 @@ main {
     border: 1px solid var(--color-principal);
 }
 
-.selected_inventario:focus{
+.selected_inventario:focus {
     outline: none;
 }
 
-.opciones_inventario{
+.opciones_inventario {
     font-size: 15px;
     font-weight: 400;
 
     max-height: 200px;
+}
+
+/*********************************** Area Inventario productos ***********************************/
+
+.info__descripcion-a {
+    width: 450px;
+    height: 100px;
+}
+
+.textArea__producto{
+    width: 100%;
+    height: 100%;
+
+    font-family: var(--family-principal);
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
+
+    border: .3px solid rgba(0, 0, 0, 0.3);
+
+    padding: 10px;
+}
+
+.textArea__producto:focus{
+    outline: none;
+}
+
+.info__precio-a{
+    width: 450px;
+    height: fit-content;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+
+    font-family: var(--family-secundario);
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.precio__input{
+    height: 35px;
+    padding-left: 5px;
+}
+
+.precio__input:focus{
+    outline: none;
+}
+
+.seleccionadores__inventario {
+    width: 450px;
+    height: 40px;
+
+    display: flex;
+    gap: 10px;
+}
+
+.selected_inventario-producto {
+    width: 220px;
+    height: 40px;
+
+    padding-left: 5px;
+
+    font-family: var(--family-secundario);
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(0, 0, 0, 0.5);
+
+    border-radius: 3px;
+    border: 1px solid var(--color-principal);
+}
+
+.selected_inventario-producto:focus {
+    outline: none;
 }

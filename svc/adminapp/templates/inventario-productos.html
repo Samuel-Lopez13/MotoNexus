@@ -2,6 +2,166 @@
 {% load static %}
 {% block content %}
 <main>
-    <h1>Inventario Productos</h1>
+    <div class="container__alerta-inventario">
+        <div class="alerta-inventario__box">
+            <div class="container__alerta-inventario__superior">
+                <h3>Agregar nuevo producto</h3>
+            </div>
+            <div class="container__alerta-inventario__medio">
+                <form method="POST" enctype="multipart/form-data" class="alerta-inventario__medio__form">
+                    {% csrf_token %}
+                    <input name="nombre" type="text" placeholder="Ingresa el nombre de tu producto">
+                    <div class="info__precio-a">
+                        <label>Precio $</label>
+                        <input class="precio__input" type="number" name="precio" id="precio" min="0.00" placeholder="Ingrese el precio">
+                    </div>
+                    <div class="info__descripcion-a">
+                        <textarea class="textArea__producto" name="descripcion" style="resize: none;" placeholder="Descripcion del producto"></textarea>
+                    </div>
+                    <div class="seleccionadores__inventario">
+                        <select name="opciones-proveedor" class="selected_inventario-producto">
+                            <option class="opciones_inventario" value="" selected>Selecciona un proveedor</option>
+                            {% for proveedor in proveedores %}
+                            <option class="opciones_inventario" value="{{ proveedor.id }}">{{ proveedor.nombre }}
+                            </option>
+                            {% endfor %}
+                        </select>
+                        <select name="opciones-marca" class="selected_inventario-producto">
+                            <option class="opciones_inventario" value="" selected>Selecciona la marca</option>
+                            {% for marca in marcas %}
+                            <option class="opciones_inventario" value="{{ marca.id }}">{{ marca.nombre }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="alerta-inventario__form__box">
+                        <input name="img" type="file" id="archivo" style="display: none;" accept=".jpg, .png">
+                        <button id="button__file" onclick="document.getElementById('archivo').click(); return false;">
+                            <img class="img_inputFile" src="{% static '/inputimage.png' %}">
+                            <span class="buttonText">
+                                Selecciona una imagen
+                                <span style="font-size: 10px">
+                                    <br>
+                                    La imagen debera medir 200px x 200px en formato PNG
+                                </span>
+                            </span>
+                        </button>
+                    </div>
+                    <div class="container__alerta-inventario__inferior">
+                        <button type="submit">Agregar producto</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- ----------------------------------------------------------------------------------------------------------- -->
+
+    <div class="container__inventario">
+        <div class="superior__container">
+            <div class="busqueda__container">
+                <input type="text" placeholder="Busca tus productos">
+            </div>
+            <div class="agregar__container">
+                <button class="button__more"><span>+</span>&nbsp;Producto</button>
+            </div>
+        </div>
+        <div class="inferior__container">
+            <div class="encabezado__table-productos">
+                <div class="id__table-producto table__design">
+                    <h6 class="table__title">#</h6>
+                </div>
+                <div class="img__table-producto table__design">
+
+                </div>
+                <div class="name__table-producto table__design">
+                    <h4 class="table__title">Nombre</h4>
+                </div>
+                <div class="descripcion__table-producto table__design">
+                    <h4 class="table__title">Descripcion</h4>
+                </div>
+                <div class="precio__table-producto table__design">
+                    <h4 class="table__title">Precio</h4>
+                </div>
+                <div class="stock__table-producto table__design">
+                    <h4 class="table__title">Stock</h4>
+                </div>
+                <div class="vendidos__table-producto table__design">
+                    <h4 class="table__title">Vendidos</h4>
+                </div>
+                <div class="marca__table-producto table__design">
+                    <h4 class="table__title">Marca</h4>
+                </div>
+                <div class="proveedor__table-producto table__design">
+                    <h4 class="table__title">Proveedor</h4>
+                </div>
+                <div class="estatus__table-producto table__design">
+                    <h4 class="table__title">Estatus</h4>
+                </div>
+                <div class="agregar__table-producto table__design">
+
+                </div>
+                <div class="editar__table-producto table__design">
+
+                </div>
+                <div class="eliminar__table-producto table__design">
+
+                </div>
+            </div>
+            {% for producto in productos %}
+
+            <div class="info__table-productos">
+                <div class="id__info-producto info__design">
+                    <h6 class="info__text">{{ forloop.counter }}</h6>
+                </div>
+                <div class="img__info-producto info__design">
+                    <img src="https://res.cloudinary.com/dnbwjuwvx/image/upload/v1713926110/{{producto.img}}" alt="">
+                </div>
+                <div class="name__info-producto info__design">
+                    <h4 class="info__text">{{ producto.nombre|slice:":20" }}</h4>
+                </div>
+                <div class="descripcion__info-producto info__design">
+                    <h4 class="info__text">{{ producto.descripcion|slice:":20" }}...</h4>
+                </div>
+                <div class="precio__info-producto info__design">
+                    <h4 class="info__text">${{ producto.precio }}</h4>
+                </div>
+                <div class="stock__info-producto info__design">
+                    <h4 class="info__text">{{ producto.stock }}</h4>
+                </div>
+                <div class="vendidos__info-producto info__design">
+                    <h4 class="info__text">{{ producto.noVenta }}</h4>
+                </div>
+                <div class="marca__info-producto info__design">
+                    <h4 class="info__text">{{ producto.marca.nombre }}</h4>
+                </div>
+                <div class="proveedor__info-producto info__design">
+                    <h4 class="info__text">{{ producto.proveedor.nombre }}</h4>
+                </div>
+                <div class="estatus__info-producto info__design">
+                    <h4 class="info__text info__status">{{ producto.status }}</h4>
+                </div>
+                <div class="agregar__info-producto info__design">
+                    <button class="button__info agregar__butto">
+                        <img src="{% static '/agregaricon.png'%}">
+                    </button>
+                </div>
+                <div class="editar__info-producto info__design">
+                    <button class="button__info editar__butto">
+                        <img src="{% static '/editaricon.png'%}">
+                    </button>
+                </div>
+                <div class="eliminar__info-producto info__design">
+                    <a href="/eliminar_proveedor/{{proveedor.id}}">
+                        <button class="button__info eliminar__butto">
+                            <img src="{% static '/eliminaricon.png'%}">
+                        </button>
+                    </a>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+    </div>
 </main>
 {% endblock %}
