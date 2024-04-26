@@ -508,8 +508,30 @@ main {
     outline: none;
 }
 
-.info__precio-a{
+.info__precio-items{
     width: 450px;
+    height: fit-content;
+
+    display: flex;
+    gap: 10px;
+}
+
+.precio__info-box{
+    width: 220px;
+    height: fit-content;
+
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    gap: 10px;
+
+    font-family: var(--family-secundario);
+    font-size: 14px;
+    color: rgba(0, 0, 0, 0.5);
+}
+
+.item_info-box{
+    width: 220px;
     height: fit-content;
 
     display: flex;
@@ -523,11 +545,22 @@ main {
 }
 
 .precio__input{
+    width: 150px;
+    height: 35px;
+    padding-left: 5px;
+}
+
+.stock__input{
+    width: 170px;
     height: 35px;
     padding-left: 5px;
 }
 
 .precio__input:focus{
+    outline: none;
+}
+
+.stock__input:focus{
     outline: none;
 }
 

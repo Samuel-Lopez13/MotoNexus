@@ -11,9 +11,15 @@
                 <form method="POST" enctype="multipart/form-data" class="alerta-inventario__medio__form">
                     {% csrf_token %}
                     <input name="nombre" type="text" placeholder="Ingresa el nombre de tu producto">
-                    <div class="info__precio-a">
-                        <label>Precio $</label>
-                        <input class="precio__input" type="number" name="precio" id="precio" min="0.00" placeholder="Ingrese el precio">
+                    <div class="info__precio-items">
+                        <div class="precio__info-box">
+                            <label>Precio $</label>
+                            <input class="precio__input" type="number" name="precio" min="0.00" placeholder="Ingrese el precio">
+                        </div>
+                        <div class="item_info-box">
+                            <label>Stock</label>
+                            <input class="stock__input" type="number" name="stock" min="0.00" placeholder="Ingrese el stock">
+                        </div>
                     </div>
                     <div class="info__descripcion-a">
                         <textarea class="textArea__producto" name="descripcion" style="resize: none;" placeholder="Descripcion del producto"></textarea>

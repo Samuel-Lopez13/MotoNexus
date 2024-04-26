@@ -57,6 +57,25 @@ def eliminarMarca(request, id):
     return redirect('marcas')
 
 def productos(request):
+    if request.method == 'POST':
+        # Obtener los datos del formulario
+        nombre = request.POST.get('nombre')
+        precio = request.POST.get('precio')
+        descripcion = request.POST.get('descripcion')
+        img = request.FILES.get('img')
+        proveedor_seleccionado = request.POST.get('opciones-proveedor')
+        marca_seleccionado = request.POST.get('opciones-marca')
+        stock = request.POST.get('stock')
+
+        # Crear una instancia del modelo Proveedores con los datos del formulario
+        productos = Productos(nombre=nombre, descripcion=descripcion, precio=precio, img=img, stock=stock, noVenta=0, marca_id=marca_seleccionado, proveedor_id=proveedor_seleccionado, status='Activo')
+
+        # Guardar el proveedor en la base de datos
+        productos.save()
+
+        # Redirigir a una página de éxito o a donde desees
+        return redirect(request.path)
+
     productos = Productos.objects.all()
     proveedores = Proveedores.objects.all()
     marcas = Marcas.objects.all()
