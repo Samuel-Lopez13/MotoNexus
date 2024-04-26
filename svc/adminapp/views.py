@@ -81,3 +81,10 @@ def productos(request):
     marcas = Marcas.objects.all()
 
     return render(request, 'inventario-productos.html',{'productos': productos, 'proveedores': proveedores, 'marcas': marcas})
+
+def eliminarProducto(request, id):
+    producto = get_object_or_404(Productos, pk=id)
+    if producto:
+        producto.delete()
+
+    return redirect('productos')
