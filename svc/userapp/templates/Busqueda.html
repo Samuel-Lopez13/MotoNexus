@@ -1,13 +1,42 @@
 {% extends 'home/index.html' %}
 {% block content %}
-<main>
+<main class="main__busqueda">
     <div class="contenedor__user">
         <div class="lista__filtros">
-            
+            <div class="title__filtro">
+                <h1>{{texto_busqueda}}</h1>
+                <p>{{cantidad}} resultados</p>
+            </div>
+            <div class="marcas__filtro">
+                <h2>Marca</h2>
+                <div class="p">
+                    {% for marca in marcas %}
+                        <p>{{marca.nombre}}</p>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="marcas__filtro">
+                <h2>Precio</h2>
+                <div class="p precio">
+                    <p>Hasta $300</p>
+                    <p>$300 a $700</p>
+                    <p>Más $700</p>
+                </div>
+            </div>
         </div>
         <div class="lista__productosventa">
             {% for producto in productos %}
-                <div>{{ producto.nombre }}</div>
+                <a href="/info_producto/{{producto.id}}" class="parent__productos">
+                    <div class="productos__img">
+                        <img src="https://res.cloudinary.com/dnbwjuwvx/image/upload/v1713926110/{{producto.img}}">
+                    </div>
+                    <div class="productos__title">
+                        {{ producto.nombre|slice:":45" }} ...
+                    </div>
+                    <div class="productos__precio">
+                        ${{ producto.precio }}
+                    </div>
+                </a>
             {% endfor %}
         </div>
     </div>

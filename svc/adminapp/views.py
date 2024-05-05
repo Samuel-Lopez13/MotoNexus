@@ -88,8 +88,10 @@ def productos(request):
         return redirect(request.path)
 
     productos = Productos.objects.all()
+
     proveedores = Proveedores.objects.all()
     proveedores_json = serialize('json', proveedores)
+
     marcas = Marcas.objects.all()
     marcas_json = serialize('json', marcas)
 

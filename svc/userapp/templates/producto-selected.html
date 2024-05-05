@@ -1,0 +1,30 @@
+{% extends 'home/index.html' %}
+{% block content %}
+<main class="main__busqueda">
+    <div class="container__productoSelected">
+        <div class="productoSelected__img">
+            <img src="https://res.cloudinary.com/dnbwjuwvx/image/upload/v1713926110/{{producto.img}}" alt="">
+        </div>
+        <div class="productoSelected__info">
+            <div class="productoinfo__title">
+                <h1>{{producto.nombre}}</h1>
+            </div>
+            <div class="productoinfo__precio">
+                <h4>${{producto.precio}}</h4>
+            </div>
+            <div class="productoinfo__descripcion">
+                <div class="descripcion__title">
+                    Descripcion
+                </div>
+                <div class="descripcion__info">
+                    {{producto.descripcion}}
+                </div>
+            </div>
+            <div class="productoinfo__btn">
+                <h6>Cantidad 1 ({{producto.stock}} disponibles)</h6>
+                <button>Agregar al carrito</button>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

@@ -1,12 +1,207 @@
+.main__busqueda{
+    overflow: auto;
+    scroll-behavior: smooth;
+    scrollbar-width: none;
+}
+
 .contenedor__user{
     width: 100%;
     height: calc(100vh - 100px);
 
     display: flex;
+    justify-content: center;
+
+    overflow: hidden;
 }
 
 .lista__filtros{
+    width: 270px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.title__filtro > h1{
+    font-size: 26px;
+    font-family: 'Poppins';
+    font-weight: bold;
+}
+
+.title__filtro > p{
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight: normal;
+}
+
+.marcas__filtro{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.marcas__filtro > h2{
+    font-size: 17px;
+    font-family: 'Poppins';
+    font-weight: 600;
+}
+
+.marcas__filtro > .p > p{
+    font-size: 15px;
+    font-family: 'Poppins';
+    font-weight: normal;
+}
+
+.lista__productosventa{
+    width: 900px;
+    height: fit-content;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 25px;
+    grid-row-gap: 20px;
+}
+
+.parent__productos{
     width: 200px;
     height: 300px;
+
+    display: flex;
+    flex-direction: column;
+
+    padding-bottom: 10px;
+
+    background-color: white;
+}
+
+.productos__img{
+    width: 200px;
+    height: 210px;
+
+    background-color: #F7F6F6;
+
+    padding-top: 10px;
+}
+
+.productos__title{
+    width: 100%;
+    height: 50px;
+
+    padding: 5px 10px;
+
+    display: flex;
+    align-items: center;
+
+    font-size: 12px;
+    font-family: "Prompt";
+    font-weight: normal;
+}
+
+.productos__precio{
+    width: 100%;
+    height: 30px;
+
+    padding: 0 10px;
+
+    font-size: 16px;
+    font-family: "Prompt";
+    font-weight: normal;
+}
+
+/* Estilo Producto seleccionado*/
+
+.container__productoSelected{
+    width: 1000px;
+    height: fit-content;
+
+    border-radius: 5px;
+
+    background-color: white;
+
+    padding: 60px 0;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+.productoSelected__img > img{
+    width: 350px;
+    height: 350px;
+}
+
+.productoSelected__info{
+    width: 350px;
+    height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.productoinfo__title > h1{
+    margin: 0;
+    font-size: 16px;
+    font-family: "Prompt";
+    font-weight: 600;
+}
+
+.productoinfo__precio > h4{
+    margin: 0;
+    font-size: 24px;
+    font-family: "Prompt";
+    font-weight: 600;
+}
+
+.productoinfo__descripcion{
+    display: flex;
+    flex-direction: column;
+}
+
+.descripcion__title{
+    font-size: 15px;
+    font-family: "Prompt";
+    font-weight: 600;
+}
+
+.descripcion__info{
+    font-size: 16px;
+    font-family: "Prompt";
+    font-weight: normal;
+}
+
+.productoinfo__btn{
+    width: 100%;
+
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+
+    padding-top: 30px;
+}
+
+.productoinfo__btn > h6{
+    margin: 0;
+    font-size: 12px;
+    font-family: "Prompt";
+    font-weight: normal;
+}
+
+.productoinfo__btn > button{
+    width: 100%;
+    height: 40px;
+
     background-color: #0062FF;
+    color: white;
+
+    border: none;
+
+    font-size: 15px;
+    font-family: "Prompt";
+    font-weight: 600;
+    border-radius: 3px;
+
+    cursor: pointer;
 }
