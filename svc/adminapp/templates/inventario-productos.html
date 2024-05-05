@@ -26,18 +26,76 @@
                     </div>
                     <div class="seleccionadores__inventario">
                         <select name="opciones-proveedor" class="selected_inventario-producto">
-                            <option class="opciones_inventario" value="" selected>Selecciona un proveedor</option>
+                            <!--<option class="opciones_inventario" value="" selected>Selecciona un proveedor</option>
                             {% for proveedor in proveedores %}
                             <option class="opciones_inventario" value="{{ proveedor.id }}">{{ proveedor.nombre }}
                             </option>
-                            {% endfor %}
+                            {% endfor %}-->
                         </select>
                         <select name="opciones-marca" class="selected_inventario-producto">
-                            <option class="opciones_inventario" value="" selected>Selecciona la marca</option>
+                            <!--<option class="opciones_inventario" value="" selected>Selecciona la marca</option>
                             {% for marca in marcas %}
-                            <option class="opciones_inventario" value="{{ marca.id }}">{{ marca.nombre }}</option>
-                            {% endfor %}
+                                <option class="opciones_inventario" value="{{ marca.id }}">{{ marca.nombre }}</option>
+                            {% endfor %}-->
                         </select>
+                        <script>
+                            var selectProveedor = document.querySelector('select[name="opciones-proveedor"]');
+                            var selectMarca = document.querySelector('select[name="opciones-marca"]');
+
+                            var proveedores = JSON.parse('{{ proveedores_json|escapejs }}');
+                            var marcas = JSON.parse('{{ marcas_json|escapejs }}');
+
+                            /* Select Proveedores */
+
+                            // Limpiar las opciones existentes del select
+                            selectProveedor.innerHTML = '';
+
+                            // Agregar la opción por defecto
+                            var optionDefault = document.createElement('option');
+                            optionDefault.value = '';
+                            optionDefault.textContent = 'Selecciona un proveedor';
+                            selectProveedor.appendChild(optionDefault);
+
+                            // Iterar sobre los nombres de los proveedores y agregar opciones al select
+                            proveedores.forEach(function(proveedor) {
+                                var option = document.createElement('option');
+                                option.value = proveedor.pk;
+                                option.textContent = proveedor.fields.nombre;
+                                selectProveedor.appendChild(option);
+                            });
+
+                            /* Selected Marcas */
+                            selectMarca.innerHTML = '';
+
+                            // Agregar la opción por defecto
+                            var optionDefault = document.createElement('option');
+                            optionDefault.value = '';
+                            optionDefault.textContent = 'Selecciona una marca';
+                            selectMarca.appendChild(optionDefault);
+
+                            //if(selectProveedor.value === ''){
+                                marcas.forEach(function(marcas, indice) {
+                                    //console.log(marcas.fields.proveedor)
+                                    var option = document.createElement('option');
+                                    option.value = marcas.pk;
+                                    option.textContent = marcas.fields.nombre;
+                                    selectMarca.appendChild(option);
+                                });
+                            //}
+
+                            selectProveedor.addEventListener('change', () =>{
+                                selectMarca.innerHTML = '';
+
+                                marcas.forEach(function(marcas) {
+                                    if(marcas.fields.proveedor == selectProveedor.value){
+                                        var option = document.createElement('option');
+                                        option.value = marcas.pk;
+                                        option.textContent = marcas.fields.nombre;
+                                        selectMarca.appendChild(option);
+                                    }
+                                });
+                            })
+                        </script>
                     </div>
                     <div class="alerta-inventario__form__box">
                         <input name="img" type="file" id="archivo" style="display: none;" accept=".jpg, .png">
@@ -63,7 +121,7 @@
 
     <!-- ----------------------------------------------------------------------------------------------------------- -->
 
-    <div class="container__inventario">
+    <div class="container__inventario container__inventario-productos">
         <div class="superior__container">
             <div class="busqueda__container">
                 <input type="text" placeholder="Busca tus productos">

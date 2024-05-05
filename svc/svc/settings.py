@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 STATICFILES_DIRS=[
     'D:/MotoNexus/MotoNexus/svc/principal/static',
     'D:/MotoNexus/MotoNexus/svc/adminapp/static',
+    'D:/MotoNexus/MotoNexus/svc/userapp/static',
 ]
 
 INSTALLED_APPS = [

@@ -26,6 +26,9 @@ header{
     align-items: center;
     gap: 40px;
 }
+.search__searching{
+    position: relative;
+}
 
 .container__search{
     height: 100%;
@@ -33,6 +36,25 @@ header{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+}
+
+.button__search{
+    position: absolute;
+    top: 0;
+    right: 1px;
+    height: 39px;
+    width: 39px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+    border: none;
+}
+
+.button__search:hover{
+    border: .3px solid rgba(0, 0, 0, 0.3);
 }
 
 .searching__input{

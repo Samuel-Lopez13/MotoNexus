@@ -1,3 +1,4 @@
+from django.core.serializers import serialize
 from django.shortcuts import render, redirect, get_object_or_404
 from principal.models import Proveedores, Marcas, Productos
 
@@ -73,17 +74,40 @@ def productos(request):
         # Guardar el proveedor en la base de datos
         productos.save()
 
+        # Actualizaremos el stock del proveedor
+        proveedor = get_object_or_404(Proveedores, pk=proveedor_seleccionado)
+        proveedor.stock += int(stock)
+        proveedor.save()
+
+        # Actualizaremos el stock de la marca
+        marca = get_object_or_404(Marcas, pk=marca_seleccionado)
+        marca.stock += int(stock)
+        marca.save()
+
         # Redirigir a una página de éxito o a donde desees
         return redirect(request.path)
 
     productos = Productos.objects.all()
     proveedores = Proveedores.objects.all()
+    proveedores_json = serialize('json', proveedores)
     marcas = Marcas.objects.all()
+    marcas_json = serialize('json', marcas)
 
-    return render(request, 'inventario-productos.html',{'productos': productos, 'proveedores': proveedores, 'marcas': marcas})
+    return render(request, 'inventario-productos.html',{'productos': productos, 'proveedores': proveedores, 'marcas': marcas, 'proveedores_json': proveedores_json, 'marcas_json': marcas_json})
 
 def eliminarProducto(request, id):
     producto = get_object_or_404(Productos, pk=id)
+
+    # Actualizaremos el stock del proveedor
+    proveedor = get_object_or_404(Proveedores, pk=producto.proveedor.id)
+    proveedor.stock -= int(producto.stock)
+    proveedor.save()
+
+    # Actualizaremos el stock de la marca
+    marca = get_object_or_404(Marcas, pk=producto.marca.id)
+    marca.stock -= int(producto.stock)
+    marca.save()
+
     if producto:
         producto.delete()
 

@@ -5,6 +5,7 @@ from django.urls import path, include
 urlpatterns = [
     path('', include('principal.urls')),
     path('', include('adminapp.urls')),
+    path('', include('userapp.urls')),
     path('admin/', admin.site.urls),
 
     #Es para obtener accedo a los sistemas de home, logout, change password

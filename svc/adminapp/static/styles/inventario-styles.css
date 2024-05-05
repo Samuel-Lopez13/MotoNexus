@@ -41,6 +41,10 @@ main {
     flex-direction: column;
 }
 
+.container__inventario-productos{
+    width: 1600px;
+}
+
 .superior__container {
     width: 100%;
 

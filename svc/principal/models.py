@@ -23,7 +23,7 @@ class Marcas(models.Model):
 
 class Productos(models.Model):
     nombre = models.CharField(max_length=255)
-    descripcion = models.CharField(max_length=255)
+    descripcion = models.TextField()
     precio = models.DecimalField(max_digits=10, decimal_places=2)
     img = models.FileField(upload_to='image-svc')
     stock = models.IntegerField()

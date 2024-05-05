@@ -1,0 +1,12 @@
+.contenedor__user{
+    width: 100%;
+    height: calc(100vh - 100px);
+
+    display: flex;
+}
+
+.lista__filtros{
+    width: 200px;
+    height: 300px;
+    background-color: #0062FF;
+}

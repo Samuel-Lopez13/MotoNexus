@@ -1,0 +1,15 @@
+{% extends 'home/index.html' %}
+{% block content %}
+<main>
+    <div class="contenedor__user">
+        <div class="lista__filtros">
+            
+        </div>
+        <div class="lista__productosventa">
+            {% for producto in productos %}
+                <div>{{ producto.nombre }}</div>
+            {% endfor %}
+        </div>
+    </div>
+</main>
+{% endblock %}
