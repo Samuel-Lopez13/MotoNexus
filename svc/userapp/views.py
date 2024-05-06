@@ -22,16 +22,14 @@ def productoInfo(request, id):
 def carritoCompras(request):
     carrito = request.session.get('carrito', [])
 
-    # Pasar el contenido del carrito al contexto de la plantilla
-    #context = {
-    #    'carrito': carrito
-    #}
-
     productos_en_carrito = Productos.objects.filter(id__in=carrito)
+
+    total = sum(float(producto.precio) for producto in productos_en_carrito)
 
     # Pasar los productos al contexto de la plantilla
     context = {
-        'carrito': productos_en_carrito
+        'carrito': productos_en_carrito,
+        'total': total
     }
 
     return render(request, 'carrito.html', context)
