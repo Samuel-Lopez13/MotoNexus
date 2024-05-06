@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="{% static '/styles/admin-styles.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static '/styles/inventario-styles.css'%}">
     <link rel="stylesheet" type="text/css" href="{% static '/styles/estilo__user.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static '/styles/estilos-carrito.css'%}">
 
     <!-- Fuentes-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -131,7 +132,7 @@
                     <a href="#">Mis compras</a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="{% url 'carritoCompras' %}">
                         <img src="{% static '/carrito.png' %}">
                     </a>
                 </li>

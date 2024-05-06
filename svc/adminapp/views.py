@@ -1,8 +1,10 @@
+from django.contrib.auth.decorators import login_required
 from django.core.serializers import serialize
 from django.shortcuts import render, redirect, get_object_or_404
 from principal.models import Proveedores, Marcas, Productos
 
 
+@login_required
 def proveedores(request):
     if request.method == 'POST':
         # Obtener los datos del formulario

@@ -1,0 +1,198 @@
+.contenidoooo{
+    width: 100px;
+    height: 100px;
+
+    background-color: #0062FF;
+}
+
+.contenedor__carrito{
+    width: 100%;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.prodctos__productos{
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+
+    border-radius: 5px;
+}
+
+.carrito__productos{
+    width: 800px;
+    height: fit-content;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+
+    gap: 15px;
+}
+
+.productos__titulos{
+    width: 100%;
+    height: fit-content;
+
+    padding: 15px;
+
+    font-family: "Prompt";
+    font-size: 15px;
+    font-weight: 600;
+
+    border-bottom: 0.1px solid rgba(0, 0, 0, 0.1);
+}
+
+.productos-informacion{
+    width: 100%;
+    height: 100px;
+
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 0 15px;
+}
+
+.informacion__img > img{
+    width: 70px;
+    height: 70px;
+}
+
+.informacion__info{
+    flex-grow: 1;
+    height: 100%;
+
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.info__title-carrito{
+    font-family: "Prompt";
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.info__eliminar-carrito{
+    color: #0062FF;
+    font-family: "Prompt";
+    font-size: 14px;
+    font-weight: normal;
+}
+
+.informacion__contador{
+    display: flex;
+
+    border: 1px solid rgba(0, 0, 0, 0.3);
+
+    border-radius: 3px;
+}
+
+.informacion__contador > button{
+    width: 40px;
+    height: 33px;
+
+    border: none;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background-color: transparent;
+}
+
+.informacion__contador > h5{
+    width: 40px;
+    height: 33px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.informacion__precio{
+    height: 100%;
+    padding: 0 20px 0 60px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Prompt";
+    font-size: 15px;
+    font-weight: 700;
+}
+/* Lado derecho */
+
+.carrito__precios{
+    width: 350px;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: white;
+
+    border-radius: 5px;
+}
+
+.precios__titulo{
+    width: 100%;
+    height: fit-content;
+
+    padding: 20px 0 20px 20px;
+
+    border-bottom: 0.1px solid rgba(0, 0, 0, 0.1);
+}
+
+.precios__titulo > h2{
+    font-family: "Prompt";
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.precios__precio{
+    width: 100%;
+    height: fit-content;
+
+    display: flex;
+    flex-direction: column;
+
+    padding: 20px;
+    gap: 20px;
+}
+
+.precios__precio > h4{
+    font-family: "Prompt";
+    font-size: 10px;
+    font-weight: normal;
+}
+
+.precios__precio > h2{
+    font-family: "Prompt";
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.precios__submit{
+    width: 100%;
+    height: 40px;
+
+    font-family: "Prompt";
+    font-size: 16px;
+    font-weight: 700;
+
+    background-color: #0062FF;
+
+    border: none;
+
+    color: white;
+    border-radius: 3px;
+
+    cursor: pointer;
+}

@@ -1,0 +1,56 @@
+{% extends 'home/index.html' %}
+{% block content %}
+<main>
+    <div class="contenedor__carrito">
+        <!--<div>
+            <div>No hay nada</div>
+            {% for item in carrito %}
+                <li>Producto ID: {{ item.pk }}</li>
+            {% endfor %}
+        </div>-->
+        <div class="carrito__productos">
+            {% for item in carrito %}
+            <div class="prodctos__productos">
+                <div class="productos__titulos">
+                    {{item.proveedor.nombre}}
+                </div>
+                <div class="productos-informacion">
+                    <div class="informacion__img">
+                        <img src="https://res.cloudinary.com/dnbwjuwvx/image/upload/v1713926110/{{item.img}}">
+                    </div>
+                    <div class="informacion__info">
+                        <div class="info__title-carrito">
+                            {{item.nombre|slice:":35"}} ...
+                        </div>
+                        <a href="" class="info__eliminar-carrito">
+                            Eliminar
+                        </a>
+                    </div>
+                    <div class="informacion__contador">
+                        <button class="contadormenos">-</button>
+                        <h5>1</h5>
+                        <button class="contadormas">+</button>
+                    </div>
+                    <div class="informacion__precio">
+                        $ {{ item.precio }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="carrito__precios">
+            <div class="precios__titulo">
+                <h2>Resumen de compra</h2>
+            </div>
+            <div class="precios__precio">
+                <h4>Productos(2) $1000</h4>
+                <h2>Total $1000</h2>
+                <button class="precios__submit">
+                    Comprar
+                </button>
+            </div>
+
+        </div>
+    </div>
+</main>
+{% endblock %}
