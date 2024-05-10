@@ -34,6 +34,7 @@
     <main>
         <form class="contenedor__inicio" action="{% url 'login' %}" method="post">
             {% csrf_token %}
+
             <div class="">
                 <label for="InputEmail" class="">Correo electronico</label>
                 <input type="text" class="form-control" name="username" id="InputEmail" placeholder="Ingresa tu correo">
@@ -48,10 +49,8 @@
         <div class="contenedor__links">
             <ul>
                 <li>
-                    <span class="links__inclik">¿No tienes cuenta?</span>&nbsp;<a href="#" class="links__pag">Suscribete</a>
-                </li>
-                <li>
-                    <span class="links__inclik">¿Olvidaste tu contraseña?</span>&nbsp;<a href="#" class="links__pag">Recuperala Aqui</a>
+                    <span class="links__inclik">¿No tienes cuenta?</span>&nbsp;<a href="#"
+                                                                                  class="links__pag">Suscribete</a>
                 </li>
             </ul>
         </div>

@@ -134,6 +134,7 @@
                 <li>
                     <a href="{% url 'carritoCompras' %}">
                         <img src="{% static '/carrito.png' %}">
+                        <span>{{ tamano_carrito }}</span>
                     </a>
                 </li>
                 <li>
@@ -201,7 +202,7 @@
         <div class="container__login">
             <ul>
                 <li>
-                    <a href="#">Crear cuenta</a>
+                    <a href="{% url 'registro' %}">Crear cuenta</a>
                 </li>
                 <li>
                     <a href="{% url 'ingresar' %}">Ingresar</a>
