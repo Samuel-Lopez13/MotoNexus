@@ -25,19 +25,23 @@
             </div>
         </div>
         <div class="lista__productosventa">
-            {% for producto in productos %}
-                <a href="/info_producto/{{producto.id}}" class="parent__productos">
-                    <div class="productos__img">
-                        <img src="https://res.cloudinary.com/dnbwjuwvx/image/upload/v1713926110/{{producto.img}}">
-                    </div>
-                    <div class="productos__title">
-                        {{ producto.nombre|slice:":45" }} ...
-                    </div>
-                    <div class="productos__precio">
-                        ${{ producto.precio }}
-                    </div>
-                </a>
-            {% endfor %}
+            {% if productos %}
+                {% for producto in productos %}
+                    <a href="/info_producto/{{producto.id}}" class="parent__productos">
+                        <div class="productos__img">
+                            <img src="https://res.cloudinary.com/dnbwjuwvx/image/upload/v1713926110/{{producto.img}}">
+                        </div>
+                        <div class="productos__title">
+                            {{ producto.nombre|slice:":45" }} ...
+                        </div>
+                        <div class="productos__precio">
+                            ${{ producto.precio }}
+                        </div>
+                    </a>
+                {% endfor %}
+            {% else %}
+                <div class="SinExsitencias" style="width: 100%">No se encontraron resultados</div>
+            {% endif %}
         </div>
     </div>
 </main>
