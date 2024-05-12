@@ -68,7 +68,10 @@ def agregarCarrito(request, id):
         # Actualizar el carrito en la sesión
         #request.session['carrito'] = carrito
 
-    return redirect('productoInfo', id=id)
+    # Obtener la URL actual
+    redirect_url = request.META.get('HTTP_REFERER')
+
+    return redirect(redirect_url, id=id)
 
 def eliminarCarrito(request, id):
     carrito = request.session.get('carrito', [])

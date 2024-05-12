@@ -41,9 +41,9 @@
                         </a>
                     </div>
                     <div class="informacion__contador">
-                        <button class="contadormenos">-</button>
+                        <a href="/eliminar_carrito/{{item.pk}}" class="contadormenos">-</a>
                         <h5>1</h5>
-                        <button class="contadormas">+</button>
+                        <a href="/agregar_carrito/{{item.pk}}" class="contadormas">+</a>
                     </div>
                     <div class="informacion__precio">
                         $ {{ item.precio }}
