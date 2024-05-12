@@ -9,6 +9,20 @@
             {% endfor %}
         </div>-->
         <div class="carrito__productos">
+            {% if total == 0 %}
+            <div class="prodctos__productos">
+                <div class="productos__titulos">
+
+                </div>
+                <div class="productos-informacion" style="height: 80px">
+                    <div class="informacion__info">
+                        <div class="info__title-carrito" style="padding-left: 20px; font-weight: 500">
+                            Ningun producto en el carrito
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
             {% for item in carrito %}
             <div class="prodctos__productos">
                 <div class="productos__titulos">
@@ -37,13 +51,14 @@
                 </div>
             </div>
             {% endfor %}
+            {% endif %}
         </div>
         <div class="carrito__precios">
             <div class="precios__titulo">
                 <h2>Resumen de compra</h2>
             </div>
             <div class="precios__precio">
-                <h4>Productos(2) ${{total}}</h4>
+                <h4>Productos({{tamano_carrito}}) ${{total}}</h4>
                 <h2>Total ${{total}}</h2>
                 <button class="precios__submit">
                     Comprar

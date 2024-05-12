@@ -132,9 +132,11 @@
                     <a href="#">Mis compras</a>
                 </li>
                 <li>
-                    <a href="{% url 'carritoCompras' %}">
+                    <a class="containerCarrito" href="{% url 'carritoCompras' %}">
                         <img src="{% static '/carrito.png' %}">
-                        <span>{{ tamano_carrito }}</span>
+                        {% if tamano_carrito > 0 %}
+                        <span class="tamanoCarritoClass">{{ tamano_carrito }}</span>
+                        {% endif %}
                     </a>
                 </li>
                 <li>

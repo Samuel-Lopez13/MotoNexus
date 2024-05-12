@@ -1,5 +1,8 @@
+from django.db.models import Sum
 from django.shortcuts import render, get_object_or_404, redirect
 from principal.models import Productos, Marcas
+
+from principal.utils import tamano_carrito
 
 
 def buscador(request):
@@ -12,24 +15,38 @@ def buscador(request):
 
         marcas = Marcas.objects.values('nombre').distinct()
 
+        context = tamano_carrito(request)
+
         # Pasar el texto de búsqueda como contexto a la plantilla informacion
-        return render(request, 'Busqueda.html', {'productos': productos, 'cantidad': cantidad, 'texto_busqueda': texto_busqueda, 'marcas': marcas})
+        return render(request, 'Busqueda.html', {'productos': productos, 'cantidad': cantidad, 'texto_busqueda': texto_busqueda, 'marcas': marcas, **context})
 
 def productoInfo(request, id):
     producto = get_object_or_404(Productos, pk=id)
-    return render(request, 'producto-selected.html', {"producto": producto})
+
+    context = tamano_carrito(request)
+
+    return render(request, 'producto-selected.html', {"producto": producto, **context})
 
 def carritoCompras(request):
     carrito = request.session.get('carrito', [])
 
     productos_en_carrito = Productos.objects.filter(id__in=carrito)
 
-    total = sum(float(producto.precio) for producto in productos_en_carrito)
+    total = 0.0
+
+    # Iterar sobre todos los IDs de productos en el carrito y sumar sus precios
+    for producto_id in carrito:
+        producto = Productos.objects.get(id=producto_id)
+        total += float(producto.precio)
+
+    # Obtener el tamaño del carrito contando la cantidad de elementos
+    tamano_carrito = len(carrito)
 
     # Pasar los productos al contexto de la plantilla
     context = {
         'carrito': productos_en_carrito,
-        'total': total
+        'total': total,
+        'tamano_carrito': tamano_carrito
     }
 
     return render(request, 'carrito.html', context)
@@ -63,16 +80,3 @@ def eliminarCarrito(request, id):
         pass  # Si el ID del producto no es válido, simplemente no hagas nada
 
     return redirect("carritoCompras")
-
-#def MostrarCarrito(request, id):
-    #carrito = request.session.get('carrito', [])
-    #tamano_carrito = request.session.get('tamano_carrito', 0)
-
-    # Imprimir el valor de tamano_carrito en la consola
-    #print("El tamaño del carrito es:", tamano_carrito)
-
-    #context = {
-    #    'tamano_carrito': tamano_carrito
-    #}
-
-    #return render(request, 'home/index.html', context)
