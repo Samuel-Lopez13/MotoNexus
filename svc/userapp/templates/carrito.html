@@ -42,15 +42,36 @@
                         </a>
                     </div>
                     <div class="informacion__contador">
-                        <a href="/eliminar_carrito/{{item.pk}}" class="contadormenos">-</a>
-                        <h5 id="numeroContador">
+                        <div class="info__contador">
                             {% for key, value in contador_ids.items %}
-                                {% if key == item.pk %}
-                                    {{ value }}<br>
+                            {% if key == item.pk %}
+                                {% if value > 1 %}
+                                <a href="/eliminar_carrito/{{item.pk}}" class="contadormenos">-</a>
+                                {% else %}
+                                <a href="" class="contadormenos">-</a>
                                 {% endif %}
+                            {% endif %}
                             {% endfor %}
-                        </h5>
-                        <a href="/agregar_carrito/{{item.pk}}" class="contadormas">+</a>
+                            <h5 id="numeroContador">
+                                {% for key, value in contador_ids.items %}
+                                {% if key == item.pk %}
+                                {{ value }}<br>
+                                {% endif %}
+                                {% endfor %}
+                            </h5>
+                            {% for key, value in contador_ids.items %}
+                            {% if key == item.pk %}
+                                {% if value < item.stock %}
+                                <a href="/agregar_carrito/{{item.pk}}" class="contadormas">+</a>
+                                {% else %}
+                                <a href="" class="contadormas">+</a>
+                                {% endif %}
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                        <div class="info__stock">
+                            <p>{{ item.stock }} disponibles</p>
+                        </div>
                     </div>
                     <div class="informacion__precio">
                         $ {{ item.precio }}

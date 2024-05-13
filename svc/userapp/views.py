@@ -114,6 +114,53 @@ def eliminarCarrito(request, id):
     return redirect("carritoCompras")
 
 def reducirStock(request):
+    carrito = request.session.get('carrito', [])
+
+    # Obtener un contador de los productos en el carrito
+    counter = Counter(carrito)
+
+    for producto_id, cantidad in counter.items():
+        # Obtener el producto correspondiente de la base de datos
+        producto = get_object_or_404(Productos, pk=producto_id)
+
+        marca = producto.marca
+        proveedor = producto.proveedor
+
+        # Reducir el stock del producto según la cantidad en el carrito
+        producto.stock -= cantidad
+        producto.noVenta += cantidad
+        producto.save()
+
+        # Reducir el stock de la marca en función de la venta del producto
+        marca.stock -= cantidad  # Puedes ajustar esto según tus necesidades
+        marca.noVenta += cantidad
+        marca.save()
+
+        # Reducir el stock de la marca en función de la venta del producto
+        proveedor.stock -= cantidad  # Puedes ajustar esto según tus necesidades
+        proveedor.noVenta += cantidad
+        proveedor.save()
+
+    """for producto_id in carrito:
+        # Obtener el producto correspondiente de la base de datos
+        producto = get_object_or_404(Productos, pk=producto_id)
+
+        marca = producto.marca
+        proveedor = producto.proveedor
+
+        # Reducir el stock del producto (por ejemplo, en 1)
+        producto.stock -= 1  # Puedes cambiar esto según cómo quieras reducir el stock
+        # Guardar los cambios en la base de datos
+        producto.save()
+
+        # Reducir el stock de la marca en función de la venta del producto
+        marca.stock -= 1  # Puedes ajustar esto según tus necesidades
+        marca.save()
+
+        # Reducir el stock de la marca en función de la venta del producto
+        proveedor.stock -= 1  # Puedes ajustar esto según tus necesidades
+        proveedor.save()"""
+
     # Eliminar la clave 'carrito' de la sesión
     if 'carrito' in request.session:
         del request.session['carrito']
