@@ -47,12 +47,15 @@ def carritoCompras(request):
     # Obtener el tamaño del carrito contando la cantidad de elementos
     tamano_carrito = len(carrito)
 
+    # Convertir el contador a un diccionario estándar
+    contador_dict = dict(counter)
+
     # Pasar los productos al contexto de la plantilla
     context = {
         'carrito': productos_en_carrito,
         'total': total,
         'tamano_carrito': tamano_carrito,
-        'contador_ids': counter
+        'contador_ids': contador_dict
     }
 
     return render(request, 'carrito.html', context)
