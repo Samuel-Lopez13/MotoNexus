@@ -1,4 +1,5 @@
 {% extends 'home/index.html' %}
+{% load static %}
 {% block content %}
 <main>
     <div class="contenedor__carrito">
@@ -66,9 +67,9 @@
             <div class="precios__precio">
                 <h4>Productos({{tamano_carrito}}) ${{total}}</h4>
                 <h2>Total ${{total}}</h2>
-                <button class="precios__submit">
+                <a href="{% url 'direccion' %}" class="precios__submit">
                     Comprar
-                </button>
+                </a>
             </div>
 
         </div>

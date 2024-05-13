@@ -60,6 +60,26 @@ def carritoCompras(request):
 
     return render(request, 'carrito.html', context)
 
+def direccion(request):
+    carrito = request.session.get('carrito', [])
+
+    total = 0.0
+
+    # Iterar sobre todos los IDs de productos en el carrito y sumar sus precios
+    for producto_id in carrito:
+        producto = Productos.objects.get(id=producto_id)
+        total += float(producto.precio)
+
+    # Obtener el tamaño del carrito contando la cantidad de elementos
+    tamano_carrito = len(carrito)
+
+    context = {
+        'total': total,
+        'tamano_carrito': tamano_carrito
+    }
+
+    return render(request, 'MetodoPago.html', context)
+
 def agregarCarrito(request, id):
     # Obtener el carrito actual de la sesión
     carrito = request.session.get('carrito', [])

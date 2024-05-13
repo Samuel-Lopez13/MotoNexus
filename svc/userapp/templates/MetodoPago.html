@@ -1,0 +1,106 @@
+{% extends 'home/index.html' %}
+{% load static %}
+{% block content %}
+<main>
+    <div id="seccion__confirmacion" class="seccion__confirmacion">
+        Felicidades has comprado tus productos
+
+        <a href="{% url 'home' %}">Continuar</a>
+    </div>
+    <div class="contenedor__direccion">
+        <div class="selected__method">
+            <h1>¿Como quieres pagar?</h1>
+            <div class="metodoPago">
+                <div class="tipo__capo" id="tipo_debito">
+                    <input id="input__debito" type="radio" name="metodoPago" value="devito">
+                    <div class="img">
+                        <img src="{% static '/debito.png'%}">
+                    </div>
+                    <h3>Tarjeta de Devito</h3>
+                </div>
+                <div class="tipo__capo" id="tipo_credito">
+                    <input id="input__credito" type="radio" name="metodoPago" value="credito">
+                    <div class="img">
+                        <img src="{% static '/credito.png'%}">
+                    </div>
+
+                    <h3>Tarjeta de Credito</h3>
+                </div>
+                <div class="tipo__capo" id="tipo_transferencia">
+                    <input id="input__transferencia" type="radio" name="metodoPago" value="transferencia">
+                    <div class="img">
+                        <img src="{% static '/transferencia.png'%}">
+                    </div>
+                    <h3>Transferencia SPEI</h3>
+                </div>
+                <div class="tipo__capo" id="tipo_efectivo">
+                    <input id="input__efectivo" type="radio" name="metodoPago" value="efectivo">
+                    <div class="img">
+                        <img src="{% static '/cash.png'%}">
+                    </div>
+                    <h3>Efectivo en puntos de pago</h3>
+                </div>
+            </div>
+            <div class="button__comprar">
+                <a id="botonComprar">
+                    Comprar
+                </a>
+            </div>
+        </div>
+        <script>
+            document.getElementById("input__efectivo").addEventListener('click', () => {
+                document.getElementById('tipo_efectivo').style.borderLeft = "6px solid blue"
+                document.getElementById('tipo_debito').style.borderLeft = "none"
+                document.getElementById('tipo_credito').style.borderLeft = "none"
+                document.getElementById('tipo_transferencia').style.borderLeft = "none"
+            })
+
+            document.getElementById("input__transferencia").addEventListener('click', () => {
+                document.getElementById('tipo_efectivo').style.borderLeft = "none"
+                document.getElementById('tipo_debito').style.borderLeft = "none"
+                document.getElementById('tipo_credito').style.borderLeft = "none"
+                document.getElementById('tipo_transferencia').style.borderLeft = "6px solid blue"
+            })
+
+            document.getElementById("input__debito").addEventListener('click', () => {
+                document.getElementById('tipo_efectivo').style.borderLeft = "none"
+                document.getElementById('tipo_debito').style.borderLeft = "6px solid blue"
+                document.getElementById('tipo_credito').style.borderLeft = "none"
+                document.getElementById('tipo_transferencia').style.borderLeft = "none"
+            })
+
+            document.getElementById("input__credito").addEventListener('click', () => {
+                document.getElementById('tipo_efectivo').style.borderLeft = "none"
+                document.getElementById('tipo_debito').style.borderLeft = "none"
+                document.getElementById('tipo_credito').style.borderLeft = "6px solid blue"
+                document.getElementById('tipo_transferencia').style.borderLeft = "none"
+            })
+
+            document.getElementById("botonComprar").addEventListener('click', () => {
+                document.getElementById("seccion__confirmacion").style.display = "flex"
+            })
+        </script>
+        <div class="resumen__compra">
+            <h3 class="title__compra">
+                Resumen de compra
+            </h3>
+            <h5 class="productos__compra">
+                <div>
+                    Productos({{ tamano_carrito }})
+                </div>
+                <div>
+                    ${{ total }}
+                </div>
+            </h5>
+            <h3 class="total__compra">
+                <div>
+                    Pagas
+                </div>
+                <div style="font-weight: bold">
+                    ${{ total }}
+                </div>
+            </h3>
+        </div>
+    </div>
+</main>
+{% endblock %}
