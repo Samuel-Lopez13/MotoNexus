@@ -49,24 +49,6 @@
                                 {% endif %}
                             {% endfor %}
                         </h5>
-                        <script>
-                            var tamano = document.getElementById('numeroContador')
-
-                            var tamanio = '{{ contador_ids }}'
-
-                            var empezar = tamanio.indexOf(":") + 2
-
-                            var texto = ""
-
-                            for (var i = empezar; i < tamanio.length; i++){
-                                if(tamanio[i] == 0 || tamanio[i] == 1 ||  tamanio[i] == 2 || tamanio[i] == 3 || tamanio[i] == 4 || tamanio[i] == 5 || tamanio[i] == 6 || tamanio[i] == 7 ||
-                                tamanio[i] == 8 || tamanio[i] == 9){
-                                    texto += tamanio[i]
-                                }
-                            }
-
-                            //tamano.textContent = texto;
-                        </script>
                         <a href="/agregar_carrito/{{item.pk}}" class="contadormas">+</a>
                     </div>
                     <div class="informacion__precio">
