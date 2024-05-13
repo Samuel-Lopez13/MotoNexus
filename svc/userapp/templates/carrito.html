@@ -42,7 +42,9 @@
                     </div>
                     <div class="informacion__contador">
                         <a href="/eliminar_carrito/{{item.pk}}" class="contadormenos">-</a>
-                        <h5>1</h5>
+                        <h5>
+                            {{ contador_ids }}
+                        </h5>
                         <a href="/agregar_carrito/{{item.pk}}" class="contadormas">+</a>
                     </div>
                     <div class="informacion__precio">

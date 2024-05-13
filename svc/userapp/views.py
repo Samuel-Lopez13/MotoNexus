@@ -1,3 +1,5 @@
+from collections import Counter
+
 from django.db.models import Sum
 from django.shortcuts import render, get_object_or_404, redirect
 from principal.models import Productos, Marcas
@@ -30,6 +32,9 @@ def productoInfo(request, id):
 def carritoCompras(request):
     carrito = request.session.get('carrito', [])
 
+    # Contar la cantidad de veces que se repite cada ID en el carrito
+    counter = Counter(carrito)
+
     productos_en_carrito = Productos.objects.filter(id__in=carrito)
 
     total = 0.0
@@ -46,7 +51,8 @@ def carritoCompras(request):
     context = {
         'carrito': productos_en_carrito,
         'total': total,
-        'tamano_carrito': tamano_carrito
+        'tamano_carrito': tamano_carrito,
+        'contador_ids': counter
     }
 
     return render(request, 'carrito.html', context)
