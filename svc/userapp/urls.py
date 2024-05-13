@@ -1,6 +1,6 @@
 from django.urls import path
 
-from .views import buscador, productoInfo, carritoCompras, agregarCarrito, eliminarCarrito, direccion
+from .views import buscador, productoInfo, carritoCompras, agregarCarrito, eliminarCarrito, direccion, reducirStock
 
 urlpatterns = [
     path('buscardor/', buscador, name='buscador'),
@@ -11,4 +11,5 @@ urlpatterns = [
     #path('agregar_carrito/<int:id>', MostrarCarrito),
     path('agregar_carrito/<int:id>', agregarCarrito),
     path('eliminar_carrito/<int:id>', eliminarCarrito),
+    path('reducirStock/', reducirStock)
 ]

@@ -112,3 +112,10 @@ def eliminarCarrito(request, id):
         pass  # Si el ID del producto no es válido, simplemente no hagas nada
 
     return redirect("carritoCompras")
+
+def reducirStock(request):
+    # Eliminar la clave 'carrito' de la sesión
+    if 'carrito' in request.session:
+        del request.session['carrito']
+
+    return redirect("home")
