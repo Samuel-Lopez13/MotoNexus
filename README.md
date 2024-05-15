@@ -1,64 +1,27 @@
 # MotoNexus
 
-Para Correr el software necesitaremos
+Software de control de inventario y carrito de compras
 
-### Para hacer un Scaffold
+### Paso 1
 
-```
-Scaffold-DbContext "Server=localhost;DataBase=fisiolabs_sofwaredb;User=root;Password=admin;Port=3306;" MySql.EntityFrameworkCore
-```
+**Clonar el proyecto**
 
-### Crear las migraciones
-
-**.NetCore CLI**
-
-Comando para installar .NetCore CLI
-
-```bash
-dotnet tool install --global dotnet-ef
+```Bash Git
+git clone https://github.com/Samuel-Lopez13/MotoNexus.git
 ```
 
-Para crear una nueva migración, el comando sugerido es el siguiente:
+### Paso 2
 
-```bash
-dotnet ef migrations add "MigracionInicial" --project Core --startup-project Presentation --output-dir Infraestructure\Persistance\Migrations
+**Generar documento de requerimientos**
+
+```Bash Git
+pip freeze > requerimientos.txt
 ```
 
-**Visual Studio**
+### Paso 3
 
----
+**Instalar requerimientos requerimientos**
 
-```bash
-Add-Migration "MigracionInicial" --project Core --startup-project Presentation --output-dir Infraestructure\Persistance\Migrations
+```Bash Git
+pip install -r requerimientos.txt
 ```
-
-Donde:
-
-- `--project Core`: el proyecto que contiene el `dbcontext`.
-
-- `--startup-project Presentation`: proyecto inicial de ejecución.
-
-- `--output-dir Infraestructure\Persistance\Migrations`:  el directorio de destino que almacenará las migraciones.
-
-### Aplicar las migraciones a la base de datos
-
-En caso de que se quiera probar una versión en local, aplicar un nuevo parche o se migre la base de datos a otro servidor, el comando sugerido sería el siguiente:
-
-**.NetCore CLI**
-```bash
-dotnet ef database update --project Core --startup-project Presentation
-```
-
----
-
-**Visual Studio**
-
-```bash
-Update-Database -Project Core -StartupProject Presentation
-```
-
-Donde:
-
-- `--project Core`: se conoce como proyecto de destino porque es donde los comandos añaden o eliminan archivos. Por defecto, el proyecto en el directorio actual es el proyecto de destino. Puede especificar un proyecto diferente como proyecto de destino utilizando la opción `--project`.
-
-- `--startup-project Presentation` : el proyecto de inicio es el que las herramientas construyen y ejecutan. Las herramientas tienen que ejecutar código de aplicación en tiempo de diseño para obtener información sobre el proyecto, como la cadena de conexión a la base de datos y la configuración del modelo. Por defecto, el proyecto en el directorio actual es el proyecto de inicio. Puede especificar un proyecto diferente como proyecto de inicio utilizando la opción `--startup-project`.
