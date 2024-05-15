@@ -53,4 +53,27 @@ pip install -r requerimientos.txt
 - pip install mysqlclient
 - pip install crispy-bootstrap5
 - pip install django-cloudinary-storage
-- pip install django-crispy-forms  
+- pip install django-crispy-forms
+
+### Paso 6
+
+**Crear usuario**
+
+```Bash Git
+python manage.py createsuperuser
+```
+
+---
+
+# Base de Datos MYSQL
+
+**Inserta dato llamado Admin**
+
+```Bash
+INSERT INTO `auth_group` (`name`) VALUES ('Admin');
+```
+**Con el Id del usuario creado y del auto_group creado**
+
+```Bash
+INSERT INTO `svc_db`.`auth_user_groups` (`user_id`, `group_id`) VALUES ('idUser', idGroup');
+```
